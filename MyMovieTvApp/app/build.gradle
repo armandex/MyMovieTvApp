@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "aguinaga.armando.mymovietvapp"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.leanback:leanback:1.2.0-alpha02'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.github.bumptech.glide:glide:4.13.1'
+    implementation "androidx.fragment:fragment-ktx:1.5.0"
+    implementation "androidx.activity:activity-ktx:1.5.0"
+    def retrofit = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    def okhttp = "4.9.3"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
+    def lifecycleViewLive = "2.5.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewLive"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleViewLive"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleViewLive"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+    implementation 'com.jakewharton.timber:timber:4.7.1'//Logger
+}
